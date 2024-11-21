@@ -1,4 +1,4 @@
-# Yearly-Term-Weight-Analysis-for-News-Headlines-Using-Apache-Spark
+# Yearly Term Weight Analysis for News Headlines Using Apache Spark
 This project computes yearly average term weights in a dataset of Australian news headlines using TF-IDF, identifying the most significant terms over time. It demonstrates efficient big data processing techniques with Apache Spark, including implementations using both RDD and DataFrame APIs.
 ## Features
 - Calculates term weights using TF-IDF.
@@ -13,11 +13,17 @@ Detecting popular and trending topics from news articles is essential for monito
    - Remove terms that appear in the top-n most frequent global terms.
 2. Term Weight Calculation:
     - Term Frequency (TF) : measures how often a term appears in a given year.
+      $`\
       TF(t, y) = \log_{10}(\text{frequency of } t \text{ in } y)
+      `$
     - Inverse Document Frequency (IDF) : accounts for how unique or significant a term is by considering how many headlines contain the term in that year.
+      $`\
       IDF(t, y) = \log_{10}\left(\frac{\text{total headlines in } y}{\text{headlines in } y \text{ containing } t}\right)
+      `$
     - Term Weight: combines these two metrics to reflect the importance of a term in a specific year.
+      $`\
       Weight(t, y) = TF(t, y) \times IDF(t, y)
+      `$
 3. Yearly Average Calculation:
    - Calculate the yearly average weight for each term by dividing the total weight of the term by the number of years it appears.
 4. Sorting and Filtering:
