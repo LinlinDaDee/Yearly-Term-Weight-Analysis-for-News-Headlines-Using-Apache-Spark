@@ -13,14 +13,17 @@ Detecting popular and trending topics from news articles is essential for monito
    - Remove terms that appear in the top-n most frequent global terms.
 2. Term Weight Calculation:
     - Term Frequency (TF) : measures how often a term appears in a given year.
+      
       $`\
       TF(t, y) = \log_{10}(\text{frequency of } t \text{ in } y)
       `$
     - Inverse Document Frequency (IDF) : accounts for how unique or significant a term is by considering how many headlines contain the term in that year.
+      
       $`\
       IDF(t, y) = \log_{10}\left(\frac{\text{total headlines in } y}{\text{headlines in } y \text{ containing } t}\right)
       `$
     - Term Weight: combines these two metrics to reflect the importance of a term in a specific year.
+      
       $`\
       Weight(t, y) = TF(t, y) \times IDF(t, y)
       `$
